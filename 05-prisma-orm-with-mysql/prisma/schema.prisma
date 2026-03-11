@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model student {
+  student_id    Int     @id @default(autoincrement())
+  student_name  String  @db.VarChar(100)
+  enrollment_no String? @unique(map: "enrollment_no") @db.VarChar(50)
+  email         String? @db.VarChar(100)
+}
